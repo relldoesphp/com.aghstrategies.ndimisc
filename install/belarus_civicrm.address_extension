@@ -1,0 +1,169 @@
+<?php
+//Create Address Group
+$params = array (
+                'version'=>'3',
+                "name"=>"Address",
+                "title"=>"Address",
+                "extends"=>"Address",
+                "style"=>"Inline",
+                "collapse_display"=>"0",
+                "help_pre"=>"",
+                "help_post"=>"",
+                "weight"=>"2",
+                "is_active"=>"1",
+                "is_multiple"=>"0",);
+$results=civicrm_api('CustomGroup','create', $params);
+$gid=$results['id'];
+$result = db_update('justworld_civicrm.civicrm_custom_group')->fields(array('title_ru_RU'=>'Адрес'))->condition('id',$results['id'])->execute();
+// Add Settlement Type options first then field
+      $params = array('version'=>'3',
+                "title"=>"Settlement Type",
+                "description"=>"(город, ПГТ, деревня)",
+                "is_reserved"=>"1",
+                "is_active"=>"1",);
+$results=civicrm_api('OptionGroup','create', $params);
+$ogid=$results['id'];
+$result = db_update('justworld_civicrm.civicrm_option_group')->fields(array('title_ru_RU'=>'Тип населенного пункта'))->condition('id',$ogid)->execute();
+//Settlement Type Values Option Fields -- ref gid from option group
+$params = array('version'=>'3',
+                "option_group_id"=>$ogid,
+                "label"=>"город",
+                "value"=>"г.",
+                "filter"=>"0",
+                "is_default"=>"0",
+                "weight"=>"3",
+                "is_optgroup"=>"0",
+                "is_reserved"=>"0",
+                "is_active"=>"1",);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                "option_group_id"=>$ogid,
+                "label"=>"ПГТ",
+                "value"=>"п.г.т.",
+                "filter"=>"0",
+                "is_default"=>"0",
+                "weight"=>"2",
+                "is_optgroup"=>"0",
+                "is_reserved"=>"0",
+                "is_active"=>"1",);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                "option_group_id"=>$ogid,
+                "label"=>"деревня",
+                "value"=>"д.",
+                "filter"=>"0",
+                "is_default"=>"0",
+                "weight"=>"1",
+                "is_optgroup"=>"0",
+                "is_reserved"=>"0",
+                "is_active"=>"1",);
+$results=civicrm_api('OptionValue','create', $params);
+
+//Create Address Fields -- use $gid from group creation
+$params= array(
+                "version"=>"3",
+		"custom_group_id"=>$gid,
+		"label"=>"Street Type",
+		"data_type"=>"String",
+		"html_type"=>"Text",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"4",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"100",
+		"note_columns"=>"60",
+		"note_rows"=>"4",);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Тип улицы'))->condition('id',$results['id'])->execute();
+$params= array(
+                "version"=>"3",
+                "custom_group_id"=>$gid,
+		"label"=>"House Number",
+		"data_type"=>"String",
+		"html_type"=>"Text",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"9",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"50",
+		"note_columns"=>"60",
+		"note_rows"=>"4",);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Номер дома'))->condition('id',$results['id'])->execute();
+$params= array(
+                "version"=>"3",
+                "custom_group_id"=>$gid,
+                "label"=>"Korpus Number",
+//		"label"=>"Номер корпуса",
+		"data_type"=>"String",
+		"html_type"=>"Text",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"12",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"100",
+		"note_columns"=>"60",
+		"note_rows"=>"4",);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Номер корпуса'))->condition('id',$results['id'])->execute();
+$params= array(
+                "version"=>"3",
+                "custom_group_id"=>$gid,
+		"label"=>"Apartment Number",
+//		"label"=>"Номер квартиры",
+		"data_type"=>"String",
+		"html_type"=>"Text",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"14",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"100",
+		"note_columns"=>"60",
+		"note_rows"=>"4",);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Номер квартиры'))->condition('id',$results['id'])->execute();
+$params= array(
+                "version"=>"3",
+                "custom_group_id"=>$gid,
+		"label"=>"Name of Street",
+//		"label"=>"Название улицы",
+		"data_type"=>"String",
+		"html_type"=>"Text",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"5",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"255",
+		"note_columns"=>"60",
+		"note_rows"=>"4",);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Название улицы'))->condition('id',$results['id'])->execute();
+$params= array(
+                "version"=>"3",
+                "custom_group_id"=>$gid,
+		"label"=>"Settlement Type",
+//		"label"=>"Тип населенного пункта (город, ПГТ, деревня)",
+		"data_type"=>"String",
+		"html_type"=>"Select",
+		"is_required"=>"0",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"15",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"255",
+		"note_columns"=>"60",
+		"note_rows"=>"4",
+                "option_group_id"=>$ogid,);
+$results=civicrm_api('CustomField','create', $params);
+$result = db_update('justworld_civicrm.civicrm_custom_field')->fields(array('label_ru_RU'=>'Тип населенного пункта (город, ПГТ, деревня)'))->condition('id',$results['id'])->execute();

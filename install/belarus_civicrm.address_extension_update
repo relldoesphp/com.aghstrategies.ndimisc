@@ -1,0 +1,51 @@
+<?php
+//Create Address Group
+civicrm_initialize( );
+$params = array ('version'=>'3',
+                'id'=>'1',
+                "title"=>"Адрес",);
+$results=civicrm_api('CustomGroup',"update", $params);
+print_r($results);
+// Add Settlement Type options first then field
+      $params = array('version'=>'3',
+                'id'=>'77',
+                "title"=>"Тип населенного пункта",);
+$results=civicrm_api('OptionGroup',"update", $params);
+print_r($results);
+//Create Address Fields -- use $gid from group creation
+$params= array(
+                "version"=>"3",
+		"id"=>'1',
+		"label"=>"Тип улицы",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);
+$params= array(
+                "version"=>"3",
+                "id"=>'2',
+		"label"=>"Номер дома",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);
+$params= array(
+                "version"=>"3",
+                "id"=>'3',
+		"label"=>"Номер корпуса",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);
+$params= array(
+                "version"=>"3",
+                "id"=>'4',
+		"label"=>"Номер квартиры",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);
+$params= array(
+                "version"=>"3",
+                "id"=>'5',
+		"label"=>"Название улицы",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);
+$params= array(
+                "version"=>"3",
+                "id"=>'6',
+		"label"=>"Тип населенного пункта (город, ПГТ, деревня)",);
+$results=civicrm_api('CustomField',"update", $params);
+print_r($results);

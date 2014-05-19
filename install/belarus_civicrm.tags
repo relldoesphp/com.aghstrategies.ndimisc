@@ -1,0 +1,94 @@
+<?php
+
+civicrm_initialize( );
+$params=array('version'=>'3',
+"id"=>"5",
+"name"=>"Волонтёр");
+$results=civicrm_api("Tag","update", $params);
+$params=array('version'=>'3',
+"id"=>"4",);
+$results=civicrm_api("Tag","delete", $params);
+$params=array('version'=>'3',
+"id"=>"3",
+);
+$results=civicrm_api("Tag","delete", $params);
+$params=array('version'=>'3',
+"id"=>"2",
+);
+$results=civicrm_api("Tag","delete", $params);
+$params=array('version'=>'3',
+"id"=>"1",
+);
+$results=civicrm_api("Tag","delete", $params);
+$params=array('version'=>'3',
+"name"=>'Сторонник - За Справедливые Выборы',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - обзвон',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - От двери к двери',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - распространение литературы',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - административная/офисная работа',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - мероприятия',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - пикеты/акции',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Волонтёр - соцсети, блоггерство',
+"parent_id"=>5,
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Студент',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Пенсионер',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Член Независимого Профсоюза',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Ветеран',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Имеет опыт работы в избиркоме',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Знает английский',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+$params=array('version'=>'3',
+"name"=>'Правозащитник',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);
+
+$params=array('version'=>'3',
+"name"=>'Участник кампаний по защите общественных интересов',
+"used_for"=>"civicrm_contact",);
+$results=civicrm_api("Tag","create", $params);

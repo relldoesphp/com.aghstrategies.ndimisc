@@ -1,0 +1,66 @@
+<?php
+civicrm_initialize( );
+$params= array('version'=>'3',
+		"title"=>"Члены",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+                "group_type"=>null,
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+		"title"=>"Кандидаты на выборах в парламент",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Координаторы",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Подписчики на партийный бюллетень",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Наблюдатели",
+                "is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Члены избиркомов",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Мобилизация избирателей в день выборов",
+		"description"=>"GOTV - Get out the Vote",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>"2",
+		"is_hidden"=>"0");
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Координаторы - Область",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>null,
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);
+$params= array('version'=>'3',
+                "title"=>"Координаторы - Район",
+		"is_active"=>"1",
+		"visibility"=>"User and User Admin Only",
+		"group_type"=>null,
+		"is_hidden"=>"0",);
+$results=civicrm_api("Group","create", $params);

@@ -1,0 +1,27 @@
+<?php
+civicrm_initialize( );
+$results=civicrm_api("RelationshipType","get", array ('version'=>'3','sequential' =>'1'));
+  foreach ($results['values'] as $rel){
+    $params = array('version'=>'3','id'=>$rel['id'],'is_active'=>'0');
+    $results=civicrm_api("RelationshipType","update", $params);
+  }
+$params=array ('version'=>'3',
+	        "name_a_b"=>"Affiliated with (Primary)",
+                "label_a_b"=>"Affiliated with (Primary)",
+                "name_b_a"=>"Primary Affiliation of",
+                "label_b_a"=>"Primary Affiliation of",
+                "contact_type_a"=>"Individual",
+                "contact_type_b"=>"Organization",
+                "is_active"=>"1",);
+$results=civicrm_api("RelationshipType","create",$params);
+//$result = db_update('justworld_civicrm.civicrm_custom_group')->fields(array('title_ru_RU'=>'Организационная/партийная принадлежность (основная)'))->condition('id',$results['id'])->execute();
+$params=array ('version'=>'3',
+                "name_a_b"=>"Affiliated with (Secondary)",
+                "label_a_b"=>"Affiliated with (Secondary)",
+                "name_b_a"=>"Secondary Affiliation of",
+                "label_b_a"=>"Secondary Affiliation of",
+                "contact_type_a"=>"Individual",
+                "contact_type_b"=>"Organization",
+                "is_active"=>"1",);
+$results=civicrm_api("RelationshipType","create",$params);
+//$result = db_update('justworld_civicrm.civicrm_custom_group')->fields(array('title_ru_RU'=>'Организационная/партийная принадлежность (вторичная)'))->condition('id',$results['id'])->execute();

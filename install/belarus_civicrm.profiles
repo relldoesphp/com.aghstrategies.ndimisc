@@ -1,0 +1,124 @@
+<?php
+civicrm_initialize( );
+/*
+//UFGroup = Profile Political Preference
+$params = array('version'=>'3',
+                "is_active"=>"1",
+		"group_type"=>"Individual,Contact",
+		"title"=>"Political Preference",
+		"help_post"=>"<p>Use to record results for persuasion and identification activities.</p>",);
+$results=civicrm_api("UFGroup","create",$params);
+$ufgid=$results['id'];
+$params = array('version'=>'3',
+		"is_active"=>"1",
+		"module"=>"Profile",
+		"weight"=>"7",
+		"uf_group_id"=>$ufgid);
+$results=civicrm_api("UFJoin","create",$params);
+$result = db_update('justworld_civicrm.civicrm_uf_group')->fields(array('title_ru_RU'=>'Политические предпочтения'))->condition('id',$results['id'])->execute();
+//Fields
+$results=civicrm_api("CustomField","get", array ('version'=>'3','sequential' =>'1', 'name' =>'Supports'));
+$custom_name='custom_'.$results['id'];
+$custom_label=$results['values']['label'];
+$params = array('version'=>'3',
+		"uf_group_id"=>$ufgid,
+		"field_name"=>$custom_name,
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"is_required"=>"0",
+		"weight"=>"1",
+		"help_post"=>"",
+		"help_pre"=>"",
+		"visibility"=>"User and User Admin Only",
+		"in_selector"=>"0",
+		"is_searchable"=>"0",
+		"label"=>$custom_label,
+		"field_type"=>"Individual");
+$results=civicrm_api("UFField","create",$params);
+$results=civicrm_api("CustomField","get", array ('version'=>'3','sequential' =>'1', 'name' =>'Strength_of_Support'));
+$custom_name='custom_'.$results['id'];
+$custom_label=$results['values']['label'];
+//Strength of Support
+$params = array('version'=>'3',
+		"uf_group_id"=>$ufgid,
+		"field_name"=>$custom_name,
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"is_required"=>"0",
+		"weight"=>"2",
+		"help_post"=>"",
+		"help_pre"=>"",
+		"visibility"=>"User and User Admin Only",
+		"in_selector"=>"0",
+		"is_searchable"=>"0",
+		"label"=>$custom_label,
+		"field_type"=>"Individual");
+$results=civicrm_api("UFField","create",$params);
+//ContactID
+$params = array('version'=>'3',
+		"uf_group_id"=>$ufgid,
+		"field_name"=>"id",
+		"is_active"=>"1",
+		"is_view"=>"1",
+		"is_required"=>"0",
+		"weight"=>"3",
+		"help_post"=>"",
+		"help_pre"=>"",
+		"visibility"=>"User and User Admin Only",
+		"in_selector"=>"0",
+		"is_searchable"=>"0",
+		"label"=>"Internal Contact ID",
+		"field_type"=>"Contact");
+$results=civicrm_api("UFField","create",$params);
+//UFGroup = Profile Tags
+$params = array('version'=>'3',
+                "is_active"=>"1",
+		"group_type"=>"Contact",
+		"title"=>"Tags",
+		"help_post"=>"<p>Use for recording results on volunteers and other tags</p>",);
+$results=civicrm_api("UFGroup","create",$params);
+$ufgid=$results['id'];
+$params = array('version'=>'3',
+                "is_active"=>"1",
+                "module"=>"Profile",
+                "weight"=>"7",
+                "uf_group_id"=>$ufgid);
+$results=civicrm_api("UFJoin","create",$params);
+//UFField = Profile Field
+//Tag
+$params = array('version'=>'3',
+		"uf_group_id"=>$ufgid,
+		"field_name"=>"tag",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"is_required"=>"0",
+		"weight"=>"1",
+		"help_post"=>"",
+		"help_pre"=>"",
+		"visibility"=>"User and User Admin Only",
+		"in_selector"=>"0",
+		"is_searchable"=>"0",
+		"label"=>"Tag(s)",
+		"field_type"=>"Contact");
+$results=civicrm_api("UFField","create",$params);
+//ContactID
+$params = array('version'=>'3',
+		"uf_group_id"=>$ufgid,
+		"field_name"=>"id",
+		"is_active"=>"1",
+		"is_view"=>"1",
+		"is_required"=>"0",
+		"weight"=>"2",
+		"help_post"=>"",
+		"help_pre"=>"",
+		"visibility"=>"User and User Admin Only",
+		"in_selector"=>"0",
+		"is_searchable"=>"0",
+		"label"=>"Internal Contact ID",
+		"field_type"=>"Contact");
+$results=civicrm_api("UFField","create",$params);
+*/
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_uf_group SET title_ru_RU='Политические предпочтения' WHERE id = 10", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_uf_group SET title_ru_RU='Ярлыки' WHERE id = 11", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+
+

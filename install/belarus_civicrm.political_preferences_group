@@ -1,0 +1,241 @@
+<?php
+
+//Create Custom Group
+$params = array (
+        'version'=>'3',
+		"name"=>"Political_Preferences",
+//		"title"=>"Политические предпочтения",
+                "title"=>"Political Preferences",
+		"extends"=>"Individual",
+		"style"=>"Inline",
+		"collapse_display"=>"0",
+		"help_pre"=>"",
+		"help_post"=>"",
+		"weight"=>"10",
+		"is_active"=>"1",
+		"is_multiple"=>"0",
+		"collapse_adv_display"=>"0",);
+$results=civicrm_api('CustomGroup','create', $params);
+$gid=$results['id'];
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_group SET title_ru_RU ='Политические предпочтения' WHERE id = {$gid}", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+//Get Group ID then add option group
+$params = array('version'=>'3',
+                    "name" => "Supports",
+                    "title" => "Supports",
+//                    "title" => "Поддерживает",
+                    "is_active" => 1,);
+$results=civicrm_api('OptionGroup','create', $params);
+$ogid=$results['id'];
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_option_group SET title_ru_RU='Поддерживает' WHERE id = {$ogid}", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+//Get Option Group id and add all option values
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "ОГП",
+                    "value" => "ОГП",
+                    "name" => "2f151396db11614671d160f70994b91",
+                    "is_default" => 0,
+                    "weight" => 9,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Говори Правду",
+                    "value" => "Говори Правду",
+                    "name" => "307227b1b2a07d7e32253e5f9eb4339",
+                    "is_default" => 0,
+                    "weight" => 7,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "БХД",
+                    "value" => "БХД",
+                    "name" => "336e1664ef83d$ogid39d9c366413a4fff",
+                    "is_default" => 0,
+                    "weight" => 6,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Справедливый Мир",
+                    "value" => "Справедливый Мир",
+                    "name" => "5dc030502f196c4dc1841b3c3e6ae3d",
+                    "is_default" => 0,
+                    "weight" => 10,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',                    
+                    "option_group_id" => $ogid,
+                    "label" => "Блок Лукашенко",
+                    "value" => "Блок Лукашенко",
+                    "name" => "7cb3e6efb4d506d664bd1e7fe455141",
+                    "is_default" => 0,
+                    "weight" => 4,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "За Свободу",
+                    "value" => "За Свободу",
+                    "name" => "ab1457aaabc857bce9a8c80a822cc95",
+                    "is_default" => 0,
+                    "weight" => 8,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "БНФ",
+                    "value" => "БНФ",
+                    "name" => "b2453d34d3aa67c602fe6fa$ogid43cc7f",
+                    "is_default" => 0,
+                    "weight" => 5,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',                   
+                    "option_group_id" => $ogid,
+                    "label" => "Неизвестно",
+                    "value" => "Неизвестно",
+                    "name" => "be89382c8a0442f55d240bd65bfb333",
+                    "is_default" => 0,
+                    "weight" => 2,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "БСДП-Г",
+                    "value" => "БСДП-Г",
+                    "name" => "cb82b30f293d7$ogidcd4a370b5d5f9195",
+                    "is_default" => 0,
+                    "weight" => 3,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Другое",
+                    "value" => "Другое",
+                    "name" => 'ff85aee93c947bdd5bd6258927d940d',
+                    "is_default" => 0,
+                    "weight" => 11,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                "custom_group_id"=>$gid,
+		"name"=>"Supports",
+                "label"=>"Supports",
+//		"label"=>"Поддерживает",
+		"data_type"=>"String",
+		"html_type"=>"Multi-Select",
+		"is_required"=>"1",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"1",
+		"is_active"=>"1",
+		"is_view"=>"0",
+		"text_length"=>"20",
+		"note_columns"=>"60",
+		"note_rows"=>"4",
+		"option_group_id"=>$ogid,);
+$results=civicrm_api('CustomField','create', $params);
+$id = $results['id'];
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_field SET label_ru_RU ='Поддерживает' WHERE id = {$id}", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+//add option group
+$params = array('version'=>'3',
+                    "name" => "Strength_of_support",
+                    "title" => "Strength of Support",
+//                    "title" => "Cтепень поддержки",
+                    "is_active" => 1,
+                    "is_reserved" => 1,);
+$results=civicrm_api('OptionGroup','create', $params);
+$ogid=$results['id'];
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_option_group SET title_ru_RU ='Cтепень поддержки' WHERE id = {$ogid}", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
+//Get Option Group id and add all option values
+
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Неизвестно",
+                    "value" => "Неизвестно",
+                    "name" => "14a14ec82e596e9baaa461ce20f9a3c",
+                    "filter" => 0,
+                    "is_default" => 0,
+                    "weight" => 1,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Сторонник",
+                    "value" => "Сторонник",
+                    "name" => "c49459adea83e8f8ac206337fe4bc96",
+                    "filter" => 0,
+                    "is_default" => 0,
+                    "weight" => 2,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',                    
+                    "option_group_id" => $ogid,
+                    "label" => "Потенциальный сторонник",
+                    "value" => "Потенциальный сторонник",
+                    "name" => "d8b2dd42e6147ae44a7d90e7f0681eb",
+                    "filter" => 0,
+                    "is_default" => 0,
+                    "weight" => 3,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                    "option_group_id" => $ogid,
+                    "label" => "Неопределившийся избиратель",
+                    "value" => "Неопределившийся избиратель",
+                    "name" => "fd5e0059a12c9$ogid17b2c832d26dd763",
+                    "filter" => 0,
+                    "is_default" => 0,
+                    "weight" => 4,
+                    "is_optgroup" => 0,
+                    "is_reserved" => 0,
+                    "is_active" => 1,);
+$results=civicrm_api('OptionValue','create', $params);
+$params = array('version'=>'3',
+                "custom_group_id"=>$gid,
+		"name"=>"Strength_of_Support",
+                "label" => "Strength of Support",
+//		"label"=>"Cтепень поддержки",
+		"data_type"=>"String",
+		"html_type"=>"Multi-Select",
+		"is_required"=>"1",
+		"is_searchable"=>"1",
+		"is_search_range"=>"0",
+		"weight"=>"3",
+		"is_active"=>"1",
+		"is_view"=>"0",
+                "help_pre"=>'Используйте "Неопределившийся избиратель" только для избирателей устаносвлены контакт',
+		"text_length"=>"100",
+		"note_columns"=>"60",
+		"note_rows"=>"4",
+		"option_group_id"=>"$ogid",);
+$results=civicrm_api('CustomField','create', $params);
+$id = $results['id'];
+$result = CRM_Core_DAO::executeQuery("UPDATE civicrm_custom_field SET label_ru_RU ='Cтепень поддержки' WHERE id = {$id}", CRM_Core_DAO::$_nullArray, TRUE, NULL, FALSE, FALSE, FALSE);
