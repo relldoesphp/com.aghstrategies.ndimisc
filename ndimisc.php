@@ -6,38 +6,38 @@ function ndimisc_civicrm_alterContent( &$content, $context, $tplName, &$object )
 /*** Replaces old template overrides ***/
   switch($tplName) {
     case "CRM/Activity/Form/Activity.tpl":
-      $content .= '<script type="text/javascript">CRM.$(".crm-activity-form-block-attachment").hide(); </script>';
+      $content .= '<script type="text/javascript">cj(".crm-activity-form-block-attachment").hide(); </script>';
       break;
     case "CRM/Event/Form/ManageEvent/EventInfo.tpl":
       $content .= '<script type="text/javascript">
-                     CRM.$(".crm-event-manage-eventinfo-form-block-is_map").hide();
-	                   CRM.$(".crm-event-manage-eventinfo-form-block-is_public").hide();
-                     CRM.$(".crm-event-manage-eventinfo-form-block-is_share").hide(); 
+                     cj(".crm-event-manage-eventinfo-form-block-is_map").hide();
+	                   cj(".crm-event-manage-eventinfo-form-block-is_public").hide();
+                     cj(".crm-event-manage-eventinfo-form-block-is_share").hide(); 
                    </script>';
       break;
     case "CRM/Admin/Page/Tag.tpl":
       $content .= '<script type="text/javascript">
-                     CRM.$(".crm-tag-used_for").hide();
-                     CRM.$("th:contains(\'Used For\')").hide();
-                     CRM.$(".crm-tag-is_reserved").hide();
-                     CRM.$("th:contains(\'Reserved?\')").hide()
+                     cj(".crm-tag-used_for").hide();
+                     cj("th:contains(\'Used For\')").hide();
+                     cj(".crm-tag-is_reserved").hide();
+                     cj("th:contains(\'Reserved?\')").hide()
                   </script>';
       break;
     case "CRM/Contact/Form/Contact.tpl":
       $content .= '<script type="text/javascript">
-                     CRM.$("label[for=\'external_identifier\']").parent().hide();
-                     CRM.$("label[for=\'image_URL\']").parent().hide();
-                     CRM.$("label[for=\'internal_identifier_display\']").text("Internal Identifier");
-                     CRM.$("div.collapsible-title:contains(\'Signature\')").hide();
-                     CRM.$("label[for=\'prefix_id\']").parent().hide();
-                     CRM.$("label[for=\'suffix_id\']").parent().hide();
-                     CRM.$("label[for=\'nick_name\']").parent().hide();
-                     CRM.$("label[for=\'contact_sub_type\']").parent().hide();
-                     CRM.$("span:contains(\'Suffix\')").hide();
-                     CRM.$("input[name*=\'postal_code_suffix\']").hide();
-                     CRM.$("input[name*=\'[city]\']").parent().append(
+                     cj("label[for=\'external_identifier\']").parent().hide();
+                     cj("label[for=\'image_URL\']").parent().hide();
+                     cj("label[for=\'internal_identifier_display\']").text("Internal Identifier");
+                     cj("div.collapsible-title:contains(\'Signature\')").hide();
+                     cj("label[for=\'prefix_id\']").parent().hide();
+                     cj("label[for=\'suffix_id\']").parent().hide();
+                     cj("label[for=\'nick_name\']").parent().hide();
+                     cj("label[for=\'contact_sub_type\']").parent().hide();
+                     cj("span:contains(\'Suffix\')").hide();
+                     cj("input[name*=\'postal_code_suffix\']").hide();
+                     cj("input[name*=\'[city]\']").parent().append(
                        \'<br><span class="description font-italic">Например‌·"Гродно"‌·или‌·"г.‌·Гродно"</span>\');
-                     CRM.$("input[name*=\'[street_address]\']").parent().append(\'<br>\');
+                     cj("input[name*=\'[street_address]\']").parent().append(\'<br>\');
                   </script>';
       break;
   }
@@ -75,7 +75,7 @@ function ndimisc_civicrm_install() {
 	require_once("install/belarus_civicrm.political_preferences_group");
   require_once("install/belarus_civicrm.relationships_api");
   require_once("install/belarus_civicrm.relationships");
-  require_once("install/belarus_civicrm.tags");
+ // require_once("install/belarus_civicrm.tags");
   require_once("install/belarus_civicrm.profiles");
   return _ndimisc_civix_civicrm_install();
 }
